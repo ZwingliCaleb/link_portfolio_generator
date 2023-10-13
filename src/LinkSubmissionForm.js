@@ -1,72 +1,64 @@
 import React, { useState } from 'react';
 
 const LinkSubmissionForm = () => {
-  const [formData, setFormData] = useState({
-    websiteName: '',
-    description: '',
-    url: '',
-    image: null, // For storing the uploaded image (if implemented)
-  });
+    const [links, setLinks] = useState([
+        { websiteName: '', description: '', url: '', image: null }
+    ]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const handleInputChange = (e, index) => {
+        const { name, value } = e.target;
+        const updatedLinks = [...links];
+        updatedLinks[index][name] = value;
+        setLinks(updatedLinks);
+    };
 
-  const handleImageUpload = (e) => {
-    // Handle image upload logic here (if implemented)
-  };
+    const addLink = () => {
+        setLinks([...links, { websiteName: '', description: '', url: '', image: null }]);
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Process form data and generate the link profile here
-    console.log('Form submitted:', formData);
-  };
+    const handleImageUpload = (e) => {
+        // Handle image upload logic here (if implemented)
+    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Website Name:</label>
-        <input
-          type="text"
-          name="websiteName"
-          value={formData.websiteName}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Description:</label>
-        <input
-          type="text"
-          name="description"
-          value={formData.description}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div>
-        <label>URL:</label>
-        <input
-          type="url"
-          name="url"
-          value={formData.url}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      {/* Optional Image Upload Field */}
-      {/* <div>
-        <label>Upload Image:</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-        />
-      </div> */}
-      <button type="submit">Generate Portfolio</button>
-    </form>
-  );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Process links arrays here
+        console.log('Form submitted:', links);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            {links.map((link, index) => (
+                <div key={index}>
+                    <input
+                        type="text"
+                        name="websiteName"
+                        value={link.websiteName}
+                        onChange={(e) => handleInputChange(e, index)}
+                        placeholder="Website Name"
+                    />
+                    <input
+                        type="text"
+                        name="description"
+                        value={link.description}
+                        onChange={(e) => handleInputChange(e, index)}
+                        placeholder="Description"
+                    />
+                    <input
+                        type="text"
+                        name="url"
+                        value={link.url}
+                        onChange={(e) => handleInputChange(e, index)}
+                        placeholder="URL"
+                    />
+                </div>
+            ))}
+            <button type="button" onClick={addLink}>
+                Add Link
+            </button>
+            <button type="submit">Generate Portfolio</button>
+        </form>
+    );
 };
 
 export default LinkSubmissionForm;
