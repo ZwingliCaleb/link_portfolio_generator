@@ -25,9 +25,29 @@
   border-radius: 5px;
   margin-right: 10px;
   margin-bottom: 10px;
-  display: none; /* Hide remove button by default */
+  display: none;
+  transition: background-color 0.3s ease;
+}
+
+.remove-link-button:hover {
+  background-color: #c82333;
 }
 
 .form-group:hover .remove-link-button {
   display: inline-block; /* Show remove button only for hovered form group */
+}
+
+.generate-portfolio-button {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.generate-portfolio-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
 }
