@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './LinkSubmissionForm.css';
 
 const LinkSubmissionForm = () => {
@@ -16,10 +16,14 @@ const LinkSubmissionForm = () => {
     };
 
     const addLink = () => {
-        setLinks([...links, { websiteName: '', description: '', url: '', image: null }]);
+        setLinks([...links, { websiteName: '', description: '', url: '' }]);
     };
 
     const removeLink = (index) => {
+        if (links.length === 1) {
+            // Don't allow removal of last link
+            return;
+        }
         const updatedLinks = [...links];
         updatedLinks.splice(index, 1);
         setLinks(updatedLinks);
@@ -33,13 +37,14 @@ const LinkSubmissionForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type = "button" onClick={addLink} className = 'add-link-button'>
-                <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
-                Add Link
-            </button>
             {links.map((link, index) => (
-                <div key={index}>
-                    <button type="button" onClick={() => removeLink(index)} className = "remove-link-button"> Remove </button>
+                <div key={index} className = "form-group">
+                    {index > 0 && (
+                    <button type="button" onClick={() => removeLink(index)} className = {`remove-link-button ${links.length === 1 ? 'hidden' : ''}`}>
+                        <FontAwesomeIcon icon = {faMinus} style = {{marginRight: '5px'}}/>
+                        Remove
+                    </button>
+                    )}
                     <input
                         type="text"
                         name="websiteName"
@@ -63,7 +68,13 @@ const LinkSubmissionForm = () => {
                     />
                 </div>
             ))}
-            <button type="submit" className = "generate-portfolio-button"> Generate Portfolio </button>
+            <button type="button" onClick={addLink} className = "add-link-button">
+                <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
+                Add Link
+            </button>
+            <button type="submit" className = "generate-portfolio-button">
+                Generate Portfolio
+            </button>
         </form>
     );
 };

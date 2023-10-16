@@ -1,32 +1,33 @@
 /* LinkSubmissionForm.css */
 
 .add-link-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .remove-link-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .generate-portfolio-button {
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-link-button:hover {
+  background-color: #218838;
+}
+
+.remove-link-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: none; /* Hide remove button by default */
+}
+
+.form-group:hover .remove-link-button {
+  display: inline-block; /* Show remove button only for hovered form group */
+}
