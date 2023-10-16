@@ -16,8 +16,10 @@ const LinkSubmissionForm = () => {
         setLinks([...links, { websiteName: '', description: '', url: '', image: null }]);
     };
 
-    const handleImageUpload = (e) => {
-        // Handle image upload logic here (if implemented)
+    const removeLink = (index) => {
+        const updatedLinks = [...links];
+        updatedLinks.splice(index, 1);
+        setLinks(updatedLinks);
     };
 
     const handleSubmit = (e) => {
@@ -30,6 +32,9 @@ const LinkSubmissionForm = () => {
         <form onSubmit={handleSubmit}>
             {links.map((link, index) => (
                 <div key={index}>
+                    <button type="button" onClick={() => removeLink(index)} style={{ marginRight: '5px'}}>
+                        Remove
+                    </button>
                     <input
                         type="text"
                         name="websiteName"
