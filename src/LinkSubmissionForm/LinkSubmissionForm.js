@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './LinkSubmissionForm.css';
 
 const LinkSubmissionForm = () => {
     const [links, setLinks] = useState([
@@ -30,11 +31,10 @@ const LinkSubmissionForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <button type = "button" onClick={addLink} className = 'add-link-button'>Add Link</button>
             {links.map((link, index) => (
                 <div key={index}>
-                    <button type="button" onClick={() => removeLink(index)} style={{ marginRight: '5px'}}>
-                        Remove
-                    </button>
+                    <button type="button" onClick={() => removeLink(index)} className = "remove-link-button"> Remove </button>
                     <input
                         type="text"
                         name="websiteName"
@@ -58,10 +58,7 @@ const LinkSubmissionForm = () => {
                     />
                 </div>
             ))}
-            <button type="button" onClick={addLink}>
-                Add Link
-            </button>
-            <button type="submit">Generate Portfolio</button>
+            <button type="submit" className = "generate-portfolio-button"> Generate Portfolio </button>
         </form>
     );
 };

@@ -1,4 +1,4 @@
-import LinkSubmissionForm from './LinkSubmissionForm';
+import LinkSubmissionForm from './LinkSubmissionForm/LinkSubmissionForm';
 import './App.css';
 
 function App() {
