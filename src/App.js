@@ -1,5 +1,5 @@
-import LinkSubmissionForm from './LinkSubmissionForm/LinkSubmissionForm';
-import './App.css';
+import LinkSubmissionForm from "./LinkSubmissionForm/LinkSubmissionForm";
+import "./App.css";
 import Footer from './Footer/Footer';
 
 function App() {
@@ -12,6 +12,6 @@ function App() {
       </header>
     </div>
   );
-};
+}
 
 export default App;

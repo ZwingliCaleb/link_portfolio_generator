@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import './LinkSubmissionForm.css';
 
 const LinkSubmissionForm = () => {
@@ -31,7 +33,10 @@ const LinkSubmissionForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type = "button" onClick={addLink} className = 'add-link-button'>Add Link</button>
+            <button type = "button" onClick={addLink} className = 'add-link-button'>
+                <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
+                Add Link
+            </button>
             {links.map((link, index) => (
                 <div key={index}>
                     <button type="button" onClick={() => removeLink(index)} className = "remove-link-button"> Remove </button>
