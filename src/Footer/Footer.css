@@ -1,6 +1,6 @@
 /* footer.css */
 footer {
-    background-color: #f8f9fa; /* Footer background color */
+    background-color: #d4d7d9; /* Footer background color */
     padding: 20px;
     text-align: center;
     position: fixed;
@@ -9,6 +9,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 200px;
+    overflow-y: auto;
     /* Additional styles for your footer */
   }
+  
   

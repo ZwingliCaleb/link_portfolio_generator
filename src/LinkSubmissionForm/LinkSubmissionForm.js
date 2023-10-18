@@ -5,8 +5,10 @@ import './LinkSubmissionForm.css';
 
 const LinkSubmissionForm = () => {
     const [links, setLinks] = useState([
-        { websiteName: '', description: '', url: '', image: null }
+        { websiteName: '', description: '', url: '' }
     ]);
+
+    const maxLinks = 5;
 
     const handleInputChange = (e, index) => {
         const { name, value } = e.target;
@@ -68,7 +70,7 @@ const LinkSubmissionForm = () => {
                     />
                 </div>
             ))}
-            <button type="button" onClick={addLink} className = "add-link-button">
+            <button type="button" onClick={addLink} className = "add-link-button" disabled = {links.length >= maxLinks}>
                 <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
                 Add Link
             </button>
