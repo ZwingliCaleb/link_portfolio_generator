@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid'; // For generating unique keys for each link
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './LinkSubmissionForm.css';
@@ -10,7 +11,7 @@ const LinkSubmissionForm = () => {
         { websiteName: '', description: '', url: '' }
     ]);
 
-    const maxLinks = 5;
+    const maxLinks = 3;
 
     const handleInputChange = (e, index) => {
         const { name, value } = e.target;
@@ -35,9 +36,11 @@ const LinkSubmissionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const consolidatedLinks = links.filter((link) => link.websiteName && link.url)
-        console.log('consolidatedLinks:', consolidatedLinks);
-        navigate('/profile', { state: { links: consolidatedLinks } });
+        const consolidatedLinks = links.filter((link) => link.websiteName && link.url);
+        const uniqueIdentifier = uuidv4();
+        navigate('/profile', { 
+            state: { links: consolidatedLinks, uniqueIdentifier }
+        });
     };
 
     return (

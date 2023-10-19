@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 
 const ProfilePage = () => {
   const location = useLocation();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+  const inputRef = useRef(null);
   const consolidatedLinks = location.state ? location.state.links : [];
-  console.log(consolidatedLinks);
 
   const handleBackClick = () => {
-    Navigate(-1);
+    navigate(-1);
+  };
+
+  const handleCopyClick = () => {
+    if (inputRef.current) {
+      inputRef.current.select();
+      document.execCommand('copy');
+      // Check if the copy operation was successful
+      if (document.queryCommandSupported('copy')) {
+        alert('Link copied to clipboard!');
+      } else {
+        alert('Oops, unable to copy. Please try again manually.');
+      }
+    }
   };
 
   return (
@@ -26,8 +39,13 @@ const ProfilePage = () => {
       ))}
 
       <div className="long-link-box">
-        <input type="text" value="YOUR_PROFILE_LINK_HERE" radonly />
-        <button onClick={() => {}}>Copy</button>
+        <input
+          ref={inputRef}
+          type="text"
+          value={`https://yourwebsite.com/profiles/${location.state.uniqueIdentifier}`}
+          readOnly
+        />
+        <button onClick={handleCopyClick}>Copy</button>
       </div>
     </div>
   );
