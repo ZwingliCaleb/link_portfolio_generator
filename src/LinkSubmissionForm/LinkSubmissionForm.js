@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './LinkSubmissionForm.css';
 
 const LinkSubmissionForm = () => {
+    const navigate = useNavigate();
     const [links, setLinks] = useState([
         { websiteName: '', description: '', url: '' }
     ]);
@@ -33,8 +35,8 @@ const LinkSubmissionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Process links arrays here
-        console.log('Form submitted:', links);
+        const consolidatedLinks = links.filter(link => link.websiteName && link.url)
+        navigate.push('/profile', { links: consolidatedLinks });
     };
 
     return (
