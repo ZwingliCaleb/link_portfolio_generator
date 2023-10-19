@@ -35,8 +35,9 @@ const LinkSubmissionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const consolidatedLinks = links.filter(link => link.websiteName && link.url)
-        navigate.push('/profile', { links: consolidatedLinks });
+        const consolidatedLinks = links.filter((link) => link.websiteName && link.url)
+        console.log('consolidatedLinks:', consolidatedLinks);
+        navigate('/profile', { state: { links: consolidatedLinks } });
     };
 
     return (

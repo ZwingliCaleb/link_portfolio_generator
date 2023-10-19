@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 const ProfilePage = () => {
   const location = useLocation();
   const consolidatedLinks = location.state ? location.state.links : [];
+  console.log(consolidatedLinks);
 
   return (
     <div>
