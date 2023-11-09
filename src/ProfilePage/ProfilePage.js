@@ -26,7 +26,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
+    <div className="profile-page">
       <h1>Your Profile Page</h1>
       <button onClick={handleBackClick}>Back to form</button>
 
@@ -42,7 +42,7 @@ const ProfilePage = () => {
         <input
           ref={inputRef}
           type="text"
-          value={`https://yourwebsite.com/profiles/${location.state.uniqueIdentifier}`}
+          value={`https://calebzwingli.com/profiles/${location.state.uniqueIdentifier}`}
           readOnly
         />
         <button onClick={handleCopyClick}>Copy</button>

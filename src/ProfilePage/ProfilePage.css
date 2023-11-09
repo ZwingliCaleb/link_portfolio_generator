@@ -38,5 +38,16 @@ button {
   button:hover {
     background-color: #0056b3; /* Darker blue color on hover */
   }
-  
+
+body {
+  background-image: url('./images/background2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}  
+.profile-page {
+  /*background-image: url('./images/background2.jpg');
+  background-size: cover;*/
+
+ } 
   

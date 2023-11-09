@@ -36,15 +36,21 @@ const LinkSubmissionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const consolidatedLinks = links.filter((link) => link.websiteName && link.url);
-        const uniqueIdentifier = uuidv4();
-        navigate('/profile', { 
-            state: { links: consolidatedLinks, uniqueIdentifier }
-        });
+        const allFieldsFilled = links.every((link) => link.websiteName && link.url);
+        if (allFieldsFilled) {
+            const consolidatedLinks = links.filter((link) => link.websiteName && link.url);
+            const uniqueIdentifier = uuidv4();
+            navigate('/profile', { 
+                state: { links: consolidatedLinks, uniqueIdentifier }
+            });
+        } else {
+            alert('Please fill out all fields.');
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="link-submission-form">
+            <form onSubmit={handleSubmit}>
             {links.map((link, index) => (
                 <div key={index} className = "form-group">
                     {index > 0 && (
@@ -76,14 +82,15 @@ const LinkSubmissionForm = () => {
                     />
                 </div>
             ))}
-            <button type="button" onClick={addLink} className = "add-link-button" disabled = {links.length >= maxLinks}>
-                <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
-                Add Link
-            </button>
-            <button type="submit" className = "generate-portfolio-button">
-                Generate Portfolio
-            </button>
-        </form>
+                <button type="button" onClick={addLink} className = "add-link-button" disabled = {links.length >= maxLinks}>
+                    <FontAwesomeIcon icon = {faPlus} style = {{marginRight: '5px'}}/>
+                    Add Link
+                </button>
+                <button type="submit" className = "generate-portfolio-button">
+                    Generate Portfolio
+                </button>
+            </form>
+        </div>
     );
 };
 
