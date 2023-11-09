@@ -50,4 +50,15 @@ body {
   background-size: cover;*/
 
  } 
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.short-link-box input {
+  width: 300px; /* Set the desired width for the input box */
+  margin-right: 5px; /* Adjust the margin between input and button */
+}
   

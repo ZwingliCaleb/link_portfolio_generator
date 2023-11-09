@@ -38,7 +38,7 @@ const ProfilePage = () => {
         </div>
       ))}
 
-      <div className="long-link-box">
+      <div className="short-link-box">
         <input
           ref={inputRef}
           type="text"
