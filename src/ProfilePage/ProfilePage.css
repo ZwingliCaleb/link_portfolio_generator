@@ -62,3 +62,9 @@ body {
   margin-right: 5px; /* Adjust the margin between input and button */
 }
   
+.content-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}

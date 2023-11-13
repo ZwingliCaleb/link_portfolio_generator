@@ -30,6 +30,7 @@ const ProfilePage = () => {
       <h1>Your Profile Page</h1>
       <button onClick={handleBackClick}>Back to form</button>
 
+      <div>
       {consolidatedLinks.map((link, index) => (
         <div key={index}>
           <p>Website Name: {link.websiteName}</p>
@@ -37,6 +38,7 @@ const ProfilePage = () => {
           <p>URL: {link.url}</p>
         </div>
       ))}
+      </div>
 
       <div className="short-link-box">
         <input
