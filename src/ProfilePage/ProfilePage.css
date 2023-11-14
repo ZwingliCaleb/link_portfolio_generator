@@ -60,6 +60,9 @@ body {
 .short-link-box input {
   width: 300px; /* Set the desired width for the input box */
   margin-right: 5px; /* Adjust the margin between input and button */
+  padding: 10px; /* Add some padding to make the input box look better */
+  border: 1px solid #ccc; /* Add a gray border */
+  border-radius: 5px; /* Optional: Adds rounded corners to the input box */
 }
   
 .content-box {
@@ -67,7 +70,7 @@ body {
   padding: 20px;
   margin: 20px auto;
   border-radius: 10px;
-  width: 50%;
+  width: 30%;
   box-sizing:border-box;
   background-color: #FF99d7;
 }
