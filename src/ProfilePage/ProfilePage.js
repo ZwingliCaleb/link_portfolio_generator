@@ -27,10 +27,10 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-      <h1>Your Profile Page</h1>
+      <h1>Profile Page</h1>
       <button onClick={handleBackClick}>Back to form</button>
 
-      <div>
+      <div class= "content-box">
       {consolidatedLinks.map((link, index) => (
         <div key={index}>
           <p>Website Name: {link.websiteName}</p>
