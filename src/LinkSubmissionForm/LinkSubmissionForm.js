@@ -57,7 +57,7 @@ const LinkSubmissionForm = () => {
 
     return (
         <div className="link-submission-form">
-            <form onSubmit={handleSubmit}>
+            <form className = "form-container" onSubmit={handleSubmit}>
             {links.map((link, index) => (
                 <div key={index} className = "form-group">
                     {index > 0 && (
