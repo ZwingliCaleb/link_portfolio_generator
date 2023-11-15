@@ -111,7 +111,10 @@ const Dropzone = ({ onDrop}) => {
     return (
         <div { ...getRootProps()} className = "dropzone">
             <input { ...getInputProps()} />
-            <p>Drag 'n' drop files here or click to select/serch from system</p>
+            <div className  = "dropzone-content">
+                <p className = "dropzone placeholder"> add potrait here </p>
+                <FontAwesomeIcon icon = {faPlus} className = "dropzone-icon" />
+            </div>
         </div>
     );
 };
