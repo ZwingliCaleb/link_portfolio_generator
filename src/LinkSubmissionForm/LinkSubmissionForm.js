@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid'; // For generating unique keys for each link
+import { useDropzone } from 'react-dropzone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import './LinkSubmissionForm.css';
@@ -8,7 +9,7 @@ import './LinkSubmissionForm.css';
 const LinkSubmissionForm = () => {
     const navigate = useNavigate();
     const [links, setLinks] = useState([
-        { websiteName: '', description: '', url: '' }
+        { websiteName: '', description: '', url: '', images: [] },
     ]);
 
     const maxLinks = 3;
@@ -20,8 +21,14 @@ const LinkSubmissionForm = () => {
         setLinks(updatedLinks);
     };
 
+    const HandleImageDrop = (files, index) => {
+        const updatedLinks = [...links];
+        updatedLinks[index].images = files;
+        setLinks(updatedLinks);
+    }
+
     const addLink = () => {
-        setLinks([...links, { websiteName: '', description: '', url: '' }]);
+        setLinks([...links, { websiteName: '', description: '', url: '', images: [] }]);
     };
 
     const removeLink = (index) => {
