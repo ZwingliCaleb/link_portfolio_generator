@@ -87,6 +87,9 @@ const LinkSubmissionForm = () => {
                         onChange={(e) => handleInputChange(e, index)}
                         placeholder="URL"
                     />
+                    <div className = "dropzone">
+                        <Dropzone onDrop = {(files) => HandleImageDrop(files, index)} />
+                    </div>
                 </div>
             ))}
                 <button type="button" onClick={addLink} className = "add-link-button" disabled = {links.length >= maxLinks}>
@@ -97,6 +100,18 @@ const LinkSubmissionForm = () => {
                     Generate Portfolio
                 </button>
             </form>
+        </div>
+    );
+};
+
+/// Dropzone component for handling image uploads
+
+const Dropzone = ({ onDrop}) => {
+    const { getRootProps, getInputProps } = useDropzone ({ onDrop });
+    return (
+        <div { ...getRootProps()} className = "dropzone">
+            <input { ...getInputProps()} />
+            <p>Drag 'n' drop files here or click to select/serch from system</p>
         </div>
     );
 };
