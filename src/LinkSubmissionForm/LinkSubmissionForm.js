@@ -91,7 +91,7 @@ const LinkSubmissionForm = () => {
                             onChange={(e) => handleInputChange(e, index)}
                             placeholder="URL"
                         />
-                        <Dropzone onImageDrop = {(files) => handleImageDrop(files, index)} />
+                        {index === 0 && <Dropzone onImageDrop = {(files) => handleImageDrop(files, index)} />}
                     </div>
                 ))}
                 <button
