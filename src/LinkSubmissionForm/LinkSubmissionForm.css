@@ -141,17 +141,8 @@ ul, ol {
   align-items: center;
 }
 
-.dropzone-content {
-  text-align: center;
-}
 
-.dropzone-placeholder {
-  font-size: 16px;
-  color: #777;
-  margin-bottom: 6px;
-}
-
-.dropzone-icon {
-  font-size: 16px;
-  color: #555;
+.preview-image {
+  max-width: 100%;
+  height: auto;
 }
