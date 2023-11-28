@@ -33,9 +33,19 @@ const ProfilePage = () => {
       <div className="content-box">
         {consolidatedLinks.map((link, index) => (
           <div key={index} className="link-info-box">
+            <div key = {index}>
+              {/*Display image if available*/}
+              {link.images && link.images.length > 0 && (
+                <img
+                  src={link.images[0].preview}
+                  alt="Preview"
+                  className="profile-image"
+                />
+              )}
             <p>Website Name: {link.websiteName}</p>
             <p>Description: {link.description}</p>
             <p>URL: {link.url}</p>
+            </div>
 
             {link.images && link.images.length > 0 && (
               <div className="image-container">

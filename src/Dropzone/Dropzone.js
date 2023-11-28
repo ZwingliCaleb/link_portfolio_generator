@@ -1,22 +1,41 @@
 // Dropzone.js
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import './Dropzone.css';
 
-const Dropzone = ({ onImageDrop }) => {
-    const onDrop = useCallback((acceptedFiles) => {
-        onImageDrop(acceptedFiles);
-    }, [onImageDrop]);
-
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+// Dropzone component for handling image uploads
+const Dropzone = ({ onDrop, previewImage }) => {
+    const handleDrop = useCallback(
+        (acceptedFiles) => {
+            onDrop(acceptedFiles);
+        },
+        [onDrop]
+    );
+    const { getRootProps, getInputProps } = useDropzone({ onDrop: handleDrop });
 
     return (
-        <div {...getRootProps()} className={`dropzone ${isDragActive ? 'drag-active' : ''}`}>
+        <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
             <div className="dropzone-content">
-                <p className="dropzone-placeholder">Add portrait here</p>
+                {previewImage && (
+                    <img
+                        src={URL.createObjectURL(previewImage)}
+                        alt="Preview"
+                        className="dropzone-preview"
+                    />
+                )}
+                {!previewImage && (
+                    <>
+                        <p className="dropzone-placeholder">Add portrait here</p>
+                        <FontAwesomeIcon icon={faPlus} className="dropzone-icon" />
+                    </>
+                )}
             </div>
         </div>
     );
 };
+
 
 export default Dropzone;

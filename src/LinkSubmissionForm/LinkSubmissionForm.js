@@ -26,6 +26,8 @@ const LinkSubmissionForm = () => {
         const updatedLinks = [...links];
         updatedLinks[index].images = files;
         setLinks(updatedLinks);
+
+        console.log("files: ", files);
     };
 
     const addLink = () => {
@@ -91,7 +93,9 @@ const LinkSubmissionForm = () => {
                             onChange={(e) => handleInputChange(e, index)}
                             placeholder="URL"
                         />
-                        {index === 0 && <Dropzone onImageDrop = {(files) => handleImageDrop(files, index)} />}
+                        {index === 0 && <Dropzone
+                         onDrop = {(files) => handleImageDrop(files, index)}
+                         previewImage={link.images[0]} />}
                     </div>
                 ))}
                 <button
