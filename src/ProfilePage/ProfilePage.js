@@ -49,7 +49,7 @@ const ProfilePage = () => {
 
             {link.images && link.images.length > 0 && (
               <div className="image-container">
-                <img src={link.images[0].preview} alt='' />
+                <img src={URL.createObjectURL(new Blob([link.images[0]], { type : link.images[0].type}))} alt={`Image ${index + 1}`} />
               </div>
             )}
           </div>
