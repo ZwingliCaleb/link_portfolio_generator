@@ -73,6 +73,8 @@ body {
   width: 30%;
   box-sizing:border-box;
   background-color: #FF99d7;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .profile-image {
