@@ -30,14 +30,30 @@ const ProfilePage = () => {
       <h1>Profile Page</h1>
       <button onClick={handleBackClick}>Back to form</button>
 
-      <div className= "content-box">
-      {consolidatedLinks.map((link, index) => (
-        <div key={index}>
-          <p>Website Name: {link.websiteName}</p>
-          <p>Description: {link.description}</p>
-          <p>URL: {link.url}</p>
-        </div>
-      ))}
+      <div className="content-box">
+        {consolidatedLinks.map((link, index) => (
+          <div key={index} className="link-info-box">
+            <div key = {index}>
+              {/*Display image if available*/}
+              {link.images && link.images.length > 0 && (
+                <img
+                  src={link.images[0].preview}
+                  alt="Preview"
+                  className="profile-image"
+                />
+              )}
+            <p>Website Name: {link.websiteName}</p>
+            <p>Description: {link.description}</p>
+            <p>URL: {link.url}</p>
+            </div>
+
+            {link.images && link.images.length > 0 && (
+              <div className="image-container">
+                <img src={URL.createObjectURL(new Blob([link.images[0]], { type : link.images[0].type}))} alt={`Image ${index + 1}`} />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       <div className="short-link-box">

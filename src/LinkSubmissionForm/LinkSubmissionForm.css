@@ -75,6 +75,7 @@ body::before {
   filter: blur(3px);
   z-index: -1;
 }
+
 /*.link-submission-form {
   background-image: url('./images/background1.jpg');
   background-size: cover;
@@ -100,6 +101,7 @@ ul, ol {
 
 .link-submission-form {
   max-width: 600px;
+  max-height: 480px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -108,6 +110,7 @@ ul, ol {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
+  overflow-y: auto;
 }
 
 .link-submission-form input {
@@ -119,3 +122,27 @@ ul, ol {
   box-sizing: border-box;
 }
 
+.form-container {
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.dropzone {
+  border: 2px dotted #d8cccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.preview-image {
+  max-width: 100%;
+  height: auto;
+}
